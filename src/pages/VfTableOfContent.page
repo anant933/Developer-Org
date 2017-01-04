@@ -1,0 +1,21 @@
+<apex:page controller="VFTableOfContentController" renderAs="pdf" standardStylesheets="false" applyBodyTag="false">
+    <head>
+ <style type="text/CSS">
+ @page {
+ size:landscape;
+ @bottom-right {
+ content: "Page " counter(page) " of " counter(pages);
+ }
+ }
+ </style>
+ </head>
+       <h2>Executive Summary</h2> 
+  
+  <apex:repeat value="{!Values}" var="v">
+      
+       {!v}<br/>
+      {!if(v=37,"Next Page","")}
+   
+    </apex:repeat>
+
+</apex:page>

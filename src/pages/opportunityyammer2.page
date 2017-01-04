@@ -1,0 +1,65 @@
+<apex:page showHeader="true"  sidebar="true" standardController="Opportunity" >
+    
+        <script type="text/javascript" data-app-id="XW5Ho673KOUcPaZKnIyp9Q" src="{!$Resource.platform_js_sdk}"></script>
+    
+    
+     <apex:remoteObjects >
+         <apex:remoteObjectModel name="Opportunity" fields="Id,Name"></apex:remoteObjectModel>
+    </apex:remoteObjects>
+
+   
+        <script>   
+    var OppId="{!$CurrentPage.parameters.id}";
+    var OppName;
+    var opportunity=new SObjectModel.Opportunity();
+    opportunity.retrieve( { where: {
+        Id: {eq: OppId},
+      }},
+                        function(error,records){
+                        if(error)
+                            alert(error);
+                        else{
+                             records.forEach(function(record){
+                           OppName=record.get("Name");
+                                 });
+
+                            }
+                            })
+
+            yam.connect.loginButton('#yammer-login', function (resp) { 
+                if (resp.authResponse) { 
+                    console.log('pass');
+                    document.getElementById('yammer-login').style.display='none';
+                    yam.connect.embedFeed({
+                         container: '#embedded-feed',
+                        network: 'comprotechnologies.com',
+                        feedType: 'open-graph',
+                        feedId: '',
+                        objectProperties: { 
+                            url: 'https://ap2.salesforce.com/'+OppId,
+                            title:OppName,
+                            type: 'page',
+                            
+        },
+                        config: {
+                            use_sso: false,
+                            header: false,
+                            footer: false
+                        }
+                    });
+                }
+                else {
+                    console.log('fail');
+                   }
+            }); 
+     
+        </script>
+        <span id="yammer-login"></span>
+       <div id="feed"></div>
+  
+    <div id="embedded-feed" style="width: 100%; height: 300px;"></div>
+<div id="og-feed" style="width: 100%; height: 300px;"></div>
+    <script> 
+ 
+    </script>
+    </apex:page>

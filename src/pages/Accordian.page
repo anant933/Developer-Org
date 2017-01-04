@@ -1,0 +1,126 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" standardController="Subscription_Form__c" extensions="forceVFTestController">
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<style>
+.tree{
+margin-left:30px;
+}
+.center{
+text-align: center;
+}
+.expandIcon {
+    list-style-image: url('{!$Resource.toggleExpand}');
+}
+ul.noIcon{
+  list-style-image:none;
+}
+li.ulTree{
+    list-style-image:none;
+}
+</style>
+<script>
+$(document).ready(function(){
+$(".ulTree").hide();
+document.getElementById('expand1').style.listStyleImage="url('{!$Resource.toggleExpand}')";
+document.getElementById('expand2').style.listStyleImage="url('{!$Resource.toggleExpand}')";
+document.getElementById('j_id0:subscriptionForm:pageBlock1:Name').placeholder='Enter your Name';
+document.getElementById('j_id0:subscriptionForm:pageBlock1:Email').placeholder='Enter your Email';
+document.getElementById('j_id0:subscriptionForm:pageBlock1:Password').placeholder='Enter your password';
+document.getElementById('j_id0:j_id4:opptyNum').placeholder='Enter Opportunity Number to Search';
+
+$("button").click(function(){
+        var favorite = [];
+        $.each($("input[name='SubChannel']:checked"), function(){            
+            favorite.push($(this).val());
+        });
+        alert("My favourite sports are: " + favorite.join(", "));
+    });
+    $('#selectAll').on('click',function(){
+    if(this.checked){
+        $('.myCheckbox').each(function(){
+            this.checked = true;
+        });
+    }else{
+         $('.myCheckbox').each(function(){
+            this.checked = false;
+        });
+    }
+});
+
+$('.myCheckbox').on('click',function(){
+    if($('.mycheckbox:checked').length == $('.myCheckbox').length){
+        $('#selectAll').prop('checked',true);
+    }else{
+        $('#selectAll').prop('checked',false);
+    }
+});
+ 
+});
+function toggleSubChannel(ulName,expandId){
+ 
+$("."+ulName).toggle();
+if(document.getElementById(''+expandId).style.listStyleImage=='url("/resource/1463980750000/toggleSmall")')
+document.getElementById(''+expandId).style.listStyleImage="url('{!$Resource.toggleExpand}')";
+else
+document.getElementById(''+expandId).style.listStyleImage="url('{!$Resource.toggleSmall}')";
+}
+
+function assignChannelSelected(){
+var favorite = [];
+        $.each($("input[name='SubChannel']:checked"), function(){            
+            favorite.push($(this).val());
+        });
+        document.getElementById('j_id0:subscriptionForm:pageBlock1:channelSelected').value=favorite.join(", ");
+        alert('You Have successfully Subscribed for the channels :'+favorite.join(", "));
+}
+
+</script>
+</head>
+
+
+
+
+<div class="tree">
+<input type="checkbox" name="SelectAll" id="selectAll" style="margin-bottom: 15px;"/> Select All
+<ul class="expandIcon" id="expand">
+<li id="expand1" onClick="toggleSubChannel('ulTree1', 'expand1')">
+9X MEDIA PVT LTD
+<ul class="liTree1 noIcon"  style="list-style-type:none;"  > 
+
+<li class="ulTree ulTree1"> 
+  <label><input type="checkbox" value="9X Jalwa" name="SubChannel" class="myCheckbox"/>9X Jalwa</label>
+</li>
+ <li class="ulTree ulTree1">
+  <label><input type="checkbox" value="9X Jhakaas" name="SubChannel" class="myCheckbox"/>9X Jhakaas</label>
+</li>
+
+</ul>
+</li>
+<li id="expand2"  onClick="toggleSubChannel('ulTree2', 'expand2')">
+<ul class="liTree2 noIcon" style="list-style-type:none;" >
+
+<ul class="liTree2 noIcon" style="list-style-type:none;" >Disney
+<li class="ulTree ulTree2">
+  <label><input type="checkbox" value="Disney Channel" name="SubChannel" class="myCheckbox"/>Disney Channel</label>
+</li>
+ <li class="ulTree ulTree2">
+  <label><input type="checkbox" value="Disney Junior" name="SubChannel" class="myCheckbox"/>Disney Junior</label>
+</li>
+
+</ul>
+</ul>
+</li>
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+</apex:page>

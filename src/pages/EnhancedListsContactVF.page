@@ -1,0 +1,4 @@
+<apex:page >
+<apex:pageBlock ><apex:outputLabel value="{!$User.FirstName}"></apex:outputLabel></apex:pageBlock>
+  <apex:enhancedList type="Contact" height="350" rowsPerPage="25"/>
+</apex:page>

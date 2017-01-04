@@ -1,0 +1,21 @@
+<apex:page sidebar="false" >
+    <script type="text/javascript" data-app-id="XW5Ho673KOUcPaZKnIyp9Q" src="{!$Resource.platform_js_sdk}"></script>
+    <div id="embedded-feed" style="height:570px;width:100%;"/>
+    <script>
+        /*yam.connect.embedFeed(
+          { container: '#embedded-feed',
+            network: 'comprotechnologies.com'  // network permalink (see below)
+           
+          });
+          */
+        yam.connect.embedFeed({
+  "config": {
+    "use_sso": false,
+    "header": false,
+    "footer": false,
+  },
+  "container": "#embedded-feed"
+   
+});
+    </script>
+</apex:page>

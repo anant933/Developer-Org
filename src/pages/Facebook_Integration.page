@@ -1,0 +1,34 @@
+<apex:page ><div id="fb-root"></div><script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '119387771740764',
+      xfbml      : true,
+      version    : 'v2.4'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<apex:pageBlock title="facebook Integration" mode="edit">
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+
+<apex:pageBlockSection title="facebook Comment Block">
+
+<div data-href="http://example.com/comments" data-numposts="5" data-colorscheme="light"></div>
+
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+
+</apex:page>

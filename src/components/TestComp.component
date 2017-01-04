@@ -1,0 +1,5 @@
+<apex:component controller="TestComp">
+    <apex:attribute id="name" type="Opportunity" description="" name="oppo" assignTo="{!opp}"/>
+    {!oppo.name}
+    {!Hello}
+</apex:component>

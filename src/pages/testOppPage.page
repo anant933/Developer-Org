@@ -1,0 +1,11 @@
+<apex:page standardController="Opportunity">
+<c:TestComp oppo="{!Opportunity}"></c:TestComp>
+<script>
+function callme()
+{
+alert('called');
+location.href="https://www.google.co.in";
+}
+</script>
+<button name="Click" value='Click' onclick="callme()"></button>
+</apex:page>

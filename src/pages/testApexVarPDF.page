@@ -1,0 +1,12 @@
+<apex:page renderAs="PDF" controller="myTestController">
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  This is your new Page
+  <apex:variable var="c" value="1"/>
+  <apex:variable value="{!varValue=c}" var="m"/>
+  <apex:outputText value="{!m}" id="myId1"></apex:outputText>
+  <apex:outputText value="{!c}" id="myId"></apex:outputText>
+  <apex:outputText value="{!varValue=c}" ></apex:outputText>
+  
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

@@ -1,0 +1,20 @@
+<apex:page >
+    yam.request({
+        url: "https://www.yammer.com/api/v1/messages.json?network_id=https://api.yammer.com/api/v1/activity.json",     //this is one of many REST endpoints that are available
+        method: "POST",
+        beforeSend: function (req) { //send the access_token in the HTTP header
+            req.headers.Authorization = "Bearer " + access_token;
+        },
+        data: {         
+          "network": "networkname",
+          "body": "Test Post",
+          "group_id": "6271439"
+        },
+        success: function (data) { //print message response information to the console
+            toastr.success('An Item was successfully posted to Yammer', "Yammer Network");  
+        },
+        error: function (user) {
+            toastr.error('There was an error eith the request', "Yammer Network");  
+        }
+      }); 
+</apex:page>

@@ -1,0 +1,29 @@
+<apex:page >
+<table>
+<tr>
+<td><b>First Name : </b></td>
+<td>{!$User.FirstName}</td>
+</tr>
+<tr>
+<td><b>Last Name : </b></td>
+<td>{!$User.LastName}</td>
+</tr>
+<tr>
+<td><b>Phone : </b></td>
+<td>{!$User.Phone}</td>
+</tr>
+<tr>
+<td><b>Email : </b></td>
+<td>{!$User.Email}</td>
+</tr>
+<tr>
+<td><b>Title : </b></td>
+<td>{!$User.Title}</td>
+</tr>
+</table>
+<apex:dataTable value="{!$User}" var="u">
+<apex:column >{!u.FirstName}</apex:column>
+<apex:column >{!u.LastName}</apex:column>
+
+</apex:dataTable>
+</apex:page>

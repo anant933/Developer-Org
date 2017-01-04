@@ -1,0 +1,21 @@
+{
+    "projectName": "Developer Org",
+    "username": "anant.agarwal@comprotechnologies.com",
+    "id": "dd5c09b0-d297-11e6-ad4f-2b605791c00e",
+    "namespace": "",
+    "orgType": "developer",
+    "loginUrl": "https://login.salesforce.com/",
+    "instanceUrl": "https://ap2.salesforce.com",
+    "workspace": "C:\\Users\\Mudit08\\Documents",
+    "subscription": [
+        "ApexClass",
+        "ApexComponent",
+        "ApexPage",
+        "ApexTrigger",
+        "CustomMetadata",
+        "CustomObject",
+        "Scontrol",
+        "StaticResource",
+        "Workflow"
+    ]
+}

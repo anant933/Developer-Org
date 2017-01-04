@@ -1,0 +1,89 @@
+<apex:page standardController="Opportunity" extensions="LineItemsDetails" renderAs="pdf" id="thePage">
+
+       <apex:pageBlock title="{!opportunity.name} (Closed Won)">
+
+        <apex:pageBlockTable value="{!opportunity}" var="opp" id="theTable">
+
+                <apex:facet name="caption">Opportunity Details</apex:facet>
+
+                <apex:facet name="header"></apex:facet>
+
+                <apex:facet name="footer"></apex:facet>
+
+                <apex:column width="150">
+
+                        <apex:facet name="header">Name</apex:facet>
+
+                        <apex:facet name="footer"><br></br><br></br></apex:facet>
+
+                        <apex:outputText value="{!opp.name}"/>
+
+                </apex:column>
+
+                <apex:column >
+
+                        <apex:facet name="header">Owner</apex:facet>
+
+                        <apex:facet name="footer"><br></br><br></br></apex:facet>
+
+                        <apex:outputText value="{!opp.owner.name}"/>
+
+                </apex:column>
+
+         </apex:pageBlockTable> 
+
+    </apex:pageBlock> 
+   
+    <apex:pageBlock >
+    <apex:pageBlockTable value="{!Details}" var="oppty">
+    <apex:column width="150">
+
+                        <apex:facet name="header">Product</apex:facet>
+
+                        <apex:facet name="footer"><br></br><br></br></apex:facet>
+
+                        <apex:outputText value="{!oppty.PricebookEntry.Product2.Name}"/>
+
+                </apex:column>
+   <apex:column width="100">
+
+                        <apex:facet name="header">Quantity<br></br></apex:facet>
+
+                        <apex:facet name="footer"><br></br><br></br></apex:facet>
+
+                        <apex:outputText value="{!oppty.Quantity}"/>
+
+                </apex:column>
+   <apex:column width="100">
+
+                        <apex:facet name="header">Sales Price<br></br></apex:facet>
+
+                        <apex:facet name="footer"><br></br><br></br></apex:facet>
+
+                        <apex:outputText value="{!oppty.UnitPrice}"/>
+
+                </apex:column>
+   <apex:column width="150">
+
+                        <apex:facet name="header">Date<br></br></apex:facet>
+
+                        <apex:facet name="footer"><br></br><br></br></apex:facet>
+
+                        <apex:outputText value="{!oppty.ServiceDate}"/>
+
+                </apex:column>
+   <apex:column width="100">
+
+                        <apex:facet name="header">Description<br></br></apex:facet>
+
+                        <apex:facet name="footer"><br></br><br></br></apex:facet>
+
+                        <apex:outputText value="{!oppty.Description}"/>
+
+                </apex:column>
+   
+    </apex:pageBlockTable>
+    </apex:pageBlock>
+
+
+</apex:page>

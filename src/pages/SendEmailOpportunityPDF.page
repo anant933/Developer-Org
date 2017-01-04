@@ -1,0 +1,24 @@
+<apex:page standardController="Opportunity">
+    <script>
+        function callSend()
+            {
+                /* Redirecting to the Send An Email Task page */
+              
+                // location.href='/_ui/core/email/author/EmailAuthor?new_template=1&template_id=00X28000000Yd8s&p3_lkid={!Opportunity.Id}&rtype=003&retURL=/{!Opportunity.Id}';
+                 location.href='/_ui/core/email/author/EmailAuthor?rtype=003&p3_lkid={!Opportunity.Id}&retURL=/{!Opportunity.Id}&template_id=00X28000000Yd8s&new_template=1';
+                 
+            }
+    </script>
+
+    <iframe src="apex/Opportunity_lineitem_Pdf?id={!opportunity.id}" width="100%" height="180%"></iframe>
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+    <p align="center">
+    
+        <button type="button" name="b" id="b" value="Email" onclick="callSend()">Email</button>
+    
+    </p>
+            </apex:pageBlockSection>
+    </apex:pageBlock>    
+
+</apex:page>
