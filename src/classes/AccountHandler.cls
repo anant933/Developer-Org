@@ -3,6 +3,7 @@ public class AccountHandler {
     {
         try{
             System.debug('testing');
+                        System.debug('testing');
         Account a=new Account(Name=name);
         insert a;
             System.debug('inserted');
