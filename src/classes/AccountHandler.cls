@@ -1,4 +1,3 @@
-//Testing
 public class AccountHandler {
     public static Account insertNewAccount(String name)
     {
